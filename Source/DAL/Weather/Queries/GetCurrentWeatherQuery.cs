@@ -2,22 +2,24 @@
 using DAL.Context;
 using Infrastructure.Weather.Queries;
 using System.Threading.Tasks;
+using Infrastructure.Context;
 
 namespace DAL.Weather.Queries
 {
    public class GetCurrentWeatherQuery : IGetCurrentWeatherQuery
    {
-      private readonly WeatherContext _context;
+      private readonly IWeatherContext _context;
 
-      public GetCurrentWeatherQuery(WeatherContext context)
+      public GetCurrentWeatherQuery(IWeatherContext context)
       {
          _context = context;
       }
 
-      public Task<Coord> Execute()
+      // TODO: Implement missing method.
+      public async Task<Coord> Execute()
       {
-         string result = _context.MakeRequest("");
-         throw new System.NotImplementedException();
+         string result = await _context.MakeRequest("");
+         return null;
       }
    }
 }

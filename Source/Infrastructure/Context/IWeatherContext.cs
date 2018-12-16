@@ -1,7 +1,9 @@
-﻿namespace Infrastructure.Context
+﻿using System.Threading.Tasks;
+
+namespace Infrastructure.Context
 {
    public interface IWeatherContext
    {
-      string MakeRequest(string url);
+      Task<string> MakeRequest(string url);
    }
 }

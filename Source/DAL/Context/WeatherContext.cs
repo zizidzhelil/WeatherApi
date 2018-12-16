@@ -1,13 +1,15 @@
-﻿using Infrastructure.Context;
+﻿using System.Threading.Tasks;
+using Infrastructure.Context;
 
 namespace DAL.Context
 {
    public class WeatherContext : IWeatherContext
    {
       // TODO: Implement api call here
-      public string MakeRequest(string url)
+      public async Task<string> MakeRequest(string url)
       {
-         throw new System.NotImplementedException();
+         await Task.Delay(1);
+         return string.Empty;
       }
    }
 }
