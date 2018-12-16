@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApi", "WeatherApi\WeatherApi.csproj", "{3BB6D5E6-A4EE-4FC9-B291-D1EF7AF83A25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherApi", "WeatherApi\WeatherApi.csproj", "{3BB6D5E6-A4EE-4FC9-B291-D1EF7AF83A25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{AC20C9D6-26E1-4075-A1A7-BD136C8B6B44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{50BD0A54-D3B3-4A46-B403-15D53CAB5B56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{0C3BA182-611C-4E66-BAC7-4133F8ACE598}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{FA1C4C4E-03A3-4760-9540-E38D8207F8A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{CCAC20DF-129B-404C-A598-E513F88FC778}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +25,26 @@ Global
 		{3BB6D5E6-A4EE-4FC9-B291-D1EF7AF83A25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BB6D5E6-A4EE-4FC9-B291-D1EF7AF83A25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BB6D5E6-A4EE-4FC9-B291-D1EF7AF83A25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC20C9D6-26E1-4075-A1A7-BD136C8B6B44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC20C9D6-26E1-4075-A1A7-BD136C8B6B44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC20C9D6-26E1-4075-A1A7-BD136C8B6B44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC20C9D6-26E1-4075-A1A7-BD136C8B6B44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50BD0A54-D3B3-4A46-B403-15D53CAB5B56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50BD0A54-D3B3-4A46-B403-15D53CAB5B56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50BD0A54-D3B3-4A46-B403-15D53CAB5B56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50BD0A54-D3B3-4A46-B403-15D53CAB5B56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C3BA182-611C-4E66-BAC7-4133F8ACE598}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C3BA182-611C-4E66-BAC7-4133F8ACE598}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C3BA182-611C-4E66-BAC7-4133F8ACE598}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C3BA182-611C-4E66-BAC7-4133F8ACE598}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA1C4C4E-03A3-4760-9540-E38D8207F8A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA1C4C4E-03A3-4760-9540-E38D8207F8A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA1C4C4E-03A3-4760-9540-E38D8207F8A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA1C4C4E-03A3-4760-9540-E38D8207F8A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCAC20DF-129B-404C-A598-E513F88FC778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCAC20DF-129B-404C-A598-E513F88FC778}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCAC20DF-129B-404C-A598-E513F88FC778}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCAC20DF-129B-404C-A598-E513F88FC778}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
