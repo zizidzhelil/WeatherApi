@@ -1,12 +1,19 @@
-﻿using System;
+﻿using BL.DependencyResolver;
+using Infrastructure.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace WeatherApi
 {
-   class Program
+   public class Program
    {
-      static void Main(string[] args)
+      public static void Main(string[] args)
       {
-         Console.WriteLine("Hello World!");
+         ServiceProvider serviceProvider = new ServiceCollection()
+            .RegisterTypes()
+            .BuildServiceProvider();
+
+         var currentWeatherService = serviceProvider.GetService<ICurrentWeatherService>();
+         currentWeatherService.GetCurrentWeather().GetAwaiter().GetResult();
       }
    }
 }
