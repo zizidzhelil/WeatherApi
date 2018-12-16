@@ -1,9 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using Infrastructure.Models;
+using System.Threading.Tasks;
 
 namespace Infrastructure.Services
 {
    public interface ICurrentWeatherService
    {
-      Task GetCurrentWeather();
+      Task<CurrentWeatherModel> GetCurrentWeather();
    }
 }

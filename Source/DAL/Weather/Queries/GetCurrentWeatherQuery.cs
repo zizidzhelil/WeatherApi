@@ -7,7 +7,7 @@ namespace DAL.Weather.Queries
    public class GetCurrentWeatherQuery : IGetCurrentWeatherQuery
    {
 
-      public Task<Coord> GetCurrentWeather()
+      public Task<Coord> Execute()
       {
          throw new System.NotImplementedException();
       }

@@ -5,6 +5,7 @@ namespace Infrastructure.Weather.Queries
 {
    public interface IGetCurrentWeatherQuery
    {
-      Task<Coord> GetCurrentWeather();
+      // TODO: Fix this Coord return type once we have all the model types from the service.
+      Task<Coord> Execute();
    }
 }
