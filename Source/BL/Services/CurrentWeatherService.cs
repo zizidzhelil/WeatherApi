@@ -17,11 +17,10 @@ namespace BL.Services
 
       public async Task<CurrentWeatherModel> GetCurrentWeather()
       {
-         // TODO: fix this coord return type once we have all the models.
-         Coord coord = await _getCurrentWeatherQuery.Execute();
-         CurrentWeatherModel weatherModel = new CurrentWeatherModel(coord);
+         WeatherObject weather = await _getCurrentWeatherQuery.Execute();
+         CurrentWeatherModel currentWeather = new CurrentWeatherModel(weather);
 
-         return weatherModel;
+         return currentWeather;
       }
    }
 }

@@ -2,7 +2,7 @@
 
 namespace Core.Models
 {
-    public class Main
+    public class WeatherDetails
     {
         [JsonProperty("temp")]
         public double Temperature { get; set; }

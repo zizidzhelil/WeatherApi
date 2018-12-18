@@ -2,14 +2,16 @@
 
 namespace Infrastructure.Models
 {
-   public class CurrentWeatherModel
-   {
-      // TODO: fix this coord return type once we have all the models.
-      public CurrentWeatherModel(Coord coord)
-      {
-         this.Degrees = coord.ToString();
-      }
+    public class CurrentWeatherModel
+    {
+        public CurrentWeatherModel(WeatherObject weatherObject)
+        {
+            Temperature = weatherObject.WeatherDetails.Temperature.ToString();
+            CityName = weatherObject.CityName;
+        }
 
-      public string Degrees { get; set; }
-   }
+        public string Temperature { get; set; }
+
+        public string CityName { get; set; }
+    }
 }

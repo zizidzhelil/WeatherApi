@@ -11,10 +11,10 @@ namespace Core.Tests.Models.MainTests
         {
             int expected = 71;
 
-            Main main = new Main();
-            main.Humidity = expected;
+            WeatherDetails weatherDetails = new WeatherDetails();
+            weatherDetails.Humidity = expected;
 
-            int actual = main.Humidity;
+            int actual = weatherDetails.Humidity;
 
             Assert.AreEqual(actual, expected);
         }

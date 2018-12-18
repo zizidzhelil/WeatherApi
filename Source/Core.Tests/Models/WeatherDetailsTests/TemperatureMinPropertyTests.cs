@@ -11,10 +11,10 @@ namespace Core.Tests.Models.MainTests
         {
             double expected = -1.00;
 
-            Main main = new Main();
-            main.TemperatureMin = expected;
+            WeatherDetails weatherDetails = new WeatherDetails();
+            weatherDetails.TemperatureMin = expected;
 
-            double actual = main.TemperatureMin;
+            double actual = weatherDetails.TemperatureMin;
 
             Assert.AreEqual(actual, expected);
         }

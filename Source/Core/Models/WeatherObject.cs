@@ -12,7 +12,7 @@ namespace Core.Models
         public List<Weather> Weather { get; set; }
 
         [JsonProperty("main")]
-        public Main Main { get; set; }
+        public WeatherDetails WeatherDetails { get; set; }
 
         [JsonProperty("wind")]
         public Wind Wind { get; set; }

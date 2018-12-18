@@ -9,7 +9,7 @@ namespace Core.Tests.Models.WeatherObjectTests
         [Test]
         public void GetAndSetMain()
         {
-            var expected = new Main()
+            var expected = new WeatherDetails()
             {
                 Temperature = 4.0,
                 Pressure = 6.3,
@@ -21,9 +21,9 @@ namespace Core.Tests.Models.WeatherObjectTests
             };
 
             WeatherObject weatherObject = new WeatherObject();
-            weatherObject.Main = expected;
+            weatherObject.WeatherDetails = expected;
 
-            var actual = weatherObject.Main;
+            var actual = weatherObject.WeatherDetails;
 
             Assert.AreEqual(actual, expected);
         }

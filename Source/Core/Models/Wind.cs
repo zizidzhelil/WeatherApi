@@ -8,6 +8,6 @@ namespace Core.Models
         public double Speed { get; set; }
 
         [JsonProperty("deg")]
-        public int Degree { get; set; }
+        public double Degree { get; set; }
     }
 }

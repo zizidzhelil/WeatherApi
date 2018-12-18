@@ -3,17 +3,17 @@ using NUnit.Framework;
 
 namespace Core.Tests.Models.MainTests
 {
-   public class TemperatureMaxPropertyTests
+    public class TemperatureMaxPropertyTests
     {
         [Test]
         public void GetAndSetTemperatureMax()
         {
             double expected = 10.00;
 
-            Main main = new Main();
-            main.TemperatureMax = expected;
+            WeatherDetails weatherDetails = new WeatherDetails();
+            weatherDetails.TemperatureMax = expected;
 
-            double actual = main.TemperatureMax;
+            double actual = weatherDetails.TemperatureMax;
 
             Assert.AreEqual(actual, expected);
         }

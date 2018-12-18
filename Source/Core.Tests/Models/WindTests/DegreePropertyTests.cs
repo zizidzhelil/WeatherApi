@@ -9,12 +9,12 @@ namespace Core.Tests.Models.WindTests
         [Test]
         public void GetAndSetDegree()
         {
-            int expected = 4;
+            double expected = 4.0;
 
             Wind wind = new Wind();
             wind.Degree = expected;
 
-            int actual = wind.Degree;
+            double actual = wind.Degree;
 
             Assert.AreEqual(actual, expected);
         }

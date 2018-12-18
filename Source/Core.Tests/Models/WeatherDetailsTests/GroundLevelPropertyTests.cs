@@ -11,10 +11,10 @@ namespace Core.Tests.Models.MainTests
         {
             double expected = 8.7;
 
-            Main main = new Main();
-            main.GroundLevel = expected;
+            WeatherDetails weatherDetails = new WeatherDetails();
+            weatherDetails.GroundLevel = expected;
 
-            double actual = main.GroundLevel;
+            double actual = weatherDetails.GroundLevel;
 
             Assert.AreEqual(actual, expected);
         }
