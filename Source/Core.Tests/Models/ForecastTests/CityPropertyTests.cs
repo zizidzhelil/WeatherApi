@@ -1,7 +1,7 @@
 ﻿using Core.Models;
 using NUnit.Framework;
 
-namespace Core.Tests.Models.ForecastObjectTests
+namespace Core.Tests.Models.ForecastTests
 {
     public class CityPropertyTests
     {
@@ -20,7 +20,7 @@ namespace Core.Tests.Models.ForecastObjectTests
                 Country = "Bulgaria"
             };
 
-            ForecastObject forecastObject = new ForecastObject();
+            Forecast forecastObject = new Forecast();
             forecastObject.City = expected;
 
             var actual = forecastObject.City;

@@ -1,7 +1,7 @@
 ﻿using Core.Models;
 using NUnit.Framework;
 
-namespace Core.Tests.Models.ForecastObjectTests
+namespace Core.Tests.Models.ForecastTests
 {
     [TestFixture]
     public class ForecastCountPropertyTests
@@ -11,7 +11,7 @@ namespace Core.Tests.Models.ForecastObjectTests
         {
             int expected = 1;
 
-            ForecastObject forecastObject = new ForecastObject();
+            Forecast forecastObject = new Forecast();
             forecastObject.ForecastCount = expected;
 
             int actual = forecastObject.ForecastCount;

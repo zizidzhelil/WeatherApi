@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Core.Models
 {
-   public class ForecastObject
+   public class Forecast
    {
       [JsonProperty("message")]
       public double Message { get; set; }

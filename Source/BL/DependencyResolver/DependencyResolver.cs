@@ -8,21 +8,19 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace BL.DependencyResolver
 {
-    public static class DependencyResolver
-    {
-        public static ServiceCollection RegisterTypes(this ServiceCollection serviceCollection)
-        {
-            serviceCollection.AddScoped<IWeatherContext, WeatherContext>();
+   public static class DependencyResolver
+   {
+      public static ServiceCollection RegisterTypes(this ServiceCollection serviceCollection)
+      {
+         serviceCollection.AddScoped<IWeatherContext, WeatherContext>();
 
-            serviceCollection.AddScoped<ICurrentWeatherService, CurrentWeatherService>();
-            serviceCollection.AddScoped<IFiveDayForecastService, FiveDayForecastService>();
+         serviceCollection.AddScoped<IGetWeatherForDaysService, GetWeatherForDaysService>();
 
-            serviceCollection.AddScoped<IGetCurrentWeatherQuery, GetCurrentWeatherQuery>();
-            serviceCollection.AddScoped<IGetFiveDayForecastQuery, GetFiveDayForecastQuery>();
+         serviceCollection.AddScoped<IGetWeatherForDaysQuery, GetWeatherForDaysQuery>();
 
-            serviceCollection.AddHttpClient();
+         serviceCollection.AddHttpClient();
 
-            return serviceCollection;
-        }
-    }
+         return serviceCollection;
+      }
+   }
 }

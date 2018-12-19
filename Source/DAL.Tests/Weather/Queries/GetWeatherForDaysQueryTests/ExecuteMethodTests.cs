@@ -8,9 +8,10 @@ using Moq;
 using Newtonsoft.Json;
 using NUnit.Framework;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
-namespace DAL.Tests.Weather.Queries.GetFiveDayForecastQueryTests
+namespace DAL.Tests.Weather.Queries.GetWeatherForDaysQueryTests
 {
    [TestFixture]
    public class ExecuteMethodTests
@@ -23,7 +24,7 @@ namespace DAL.Tests.Weather.Queries.GetFiveDayForecastQueryTests
          Mock<IWeatherContext> contextMock = new Mock<IWeatherContext>();
          Mock<IAppSettingsProvider> appSettingsProviderMock = new Mock<IAppSettingsProvider>();
 
-         contextMock.Setup(c => c.MakeRequest(It.IsAny<string>())).ReturnsAsync(ResponseMocks.GetFiveDayForecastMock);
+         contextMock.Setup(c => c.MakeRequest(It.IsAny<string>())).ReturnsAsync(ResponseMocks.GetForecastMock);
          appSettingsProviderMock.SetupGet(a => a.ApiKey).Returns(Guid.NewGuid().ToString());
 
          _contextMock = contextMock.Object;
@@ -31,12 +32,20 @@ namespace DAL.Tests.Weather.Queries.GetFiveDayForecastQueryTests
       }
 
       [Test]
-      public async Task ShouldReturnDeserializedObject()
+      [TestCase(1)]
+      [TestCase(2)]
+      [TestCase(3)]
+      [TestCase(4)]
+      [TestCase(5)]
+      public async Task ShouldReturnDeserializedObject(int weatherObject)
       {
-         IGetFiveDayForecastQuery getFiveDayForecastQuery = new GetFiveDayForecastQuery(_contextMock, _appSettingsProviderMock);
+         IGetWeatherForDaysQuery getWeatherForDaysQuery = new GetWeatherForDaysQuery(_contextMock, _appSettingsProviderMock);
 
-         ForecastObject actualObject = await getFiveDayForecastQuery.Execute();
-         ForecastObject expectedObject = JsonConvert.DeserializeObject<ForecastObject>(ResponseMocks.GetFiveDayForecastMock);
+         Forecast actualObject = await getWeatherForDaysQuery.Execute(weatherObject);
+         Forecast expectedObject = JsonConvert.DeserializeObject<Forecast>(ResponseMocks.GetForecastMock);
+
+         expectedObject.ForecastCount = weatherObject;
+         expectedObject.MultiDayForecast = expectedObject.MultiDayForecast.Take(weatherObject).ToList();
 
          var actual = JsonConvert.SerializeObject(actualObject);
          var expected = JsonConvert.SerializeObject(expectedObject);

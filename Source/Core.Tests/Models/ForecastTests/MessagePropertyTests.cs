@@ -1,7 +1,7 @@
 ﻿using Core.Models;
 using NUnit.Framework;
 
-namespace Core.Tests.Models.SysTests
+namespace Core.Tests.Models.ForecastTests
 {
     [TestFixture]
     public class MessagePropertyTests
@@ -9,12 +9,12 @@ namespace Core.Tests.Models.SysTests
         [Test]
         public void GetAndSetMessage()
         {
-            string expected = "Cloudy";
+            double expected = 1.2;
 
-            CountryDetails sys = new CountryDetails();
-            sys.Message = expected;
+            Forecast forecastObject = new Forecast();
+            forecastObject.Message = expected;
 
-            string actual = sys.Message;
+            double actual = forecastObject.Message;
 
             Assert.AreEqual(actual, expected);
         }

@@ -1,8 +1,8 @@
-﻿using Core.Models;
+﻿using System.Collections.Generic;
+using Core.Models;
 using NUnit.Framework;
-using System.Collections.Generic;
 
-namespace Core.Tests.Models.ForecastObjectTests
+namespace Core.Tests.Models.ForecastTests
 {
     [TestFixture]
     public class MultiDayForecastPropertyTests
@@ -48,7 +48,7 @@ namespace Core.Tests.Models.ForecastObjectTests
                }
             };
 
-            ForecastObject forecastObject = new ForecastObject();
+            Forecast forecastObject = new Forecast();
             forecastObject.MultiDayForecast = expected;
 
             var actual = forecastObject.MultiDayForecast;

@@ -9,7 +9,7 @@ namespace DAL.Tests.Mocks
       public new virtual async Task<string> GetStringAsync(string url)
       {
          await Task.Delay(1);
-         return ResponseMocks.GetCurrentWeatherMock;
+         return ResponseMocks.GetForecastMock;
       }
    }
 }

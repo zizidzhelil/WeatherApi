@@ -1,5 +1,4 @@
 ﻿using BL.DependencyResolver;
-using Infrastructure.Providers;
 using Infrastructure.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,11 +19,8 @@ namespace WeatherApi
             .RegisterTypes()
             .BuildServiceProvider();
 
-         // var currentWeatherService = serviceProvider.GetService<ICurrentWeatherService>();
-         // var result = currentWeatherService.GetCurrentWeather().GetAwaiter().GetResult();
-
-         var fiveDayForecastService = serviceProvider.GetService<IFiveDayForecastService>();
-         var resultFiveDayForecast = fiveDayForecastService.GetFiveDayForecast().GetAwaiter().GetResult();
+         var weatherForDaysService = serviceProvider.GetService<IGetWeatherForDaysService>();
+         var result = weatherForDaysService.GetWeatherForDays(4).GetAwaiter().GetResult();
       }
    }
 }

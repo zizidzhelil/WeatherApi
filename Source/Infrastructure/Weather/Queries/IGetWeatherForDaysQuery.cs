@@ -3,8 +3,8 @@ using Core.Models;
 
 namespace Infrastructure.Weather.Queries
 {
-   public interface IGetCurrentWeatherQuery
+   public interface IGetWeatherForDaysQuery
    {
-      Task<WeatherObject> Execute();
+      Task<Forecast> Execute(int weatherDays);
    }
 }
