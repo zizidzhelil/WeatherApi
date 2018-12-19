@@ -19,8 +19,8 @@ namespace WeatherApi
             .RegisterTypes()
             .BuildServiceProvider();
 
-         var weatherForDaysService = serviceProvider.GetService<IGetWeatherForDaysService>();
-         var result = weatherForDaysService.GetWeatherForDays(4).GetAwaiter().GetResult();
+         var weatherForDaysService = serviceProvider.GetService<IGetWeatherForCityAndDaysService>();
+         var result = weatherForDaysService.GetWeatherForCityAndDays("Sofia", 4).GetAwaiter().GetResult();
       }
    }
 }

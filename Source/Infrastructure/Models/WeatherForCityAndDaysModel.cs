@@ -3,9 +3,9 @@ using System.Linq;
 
 namespace Infrastructure.Models
 {
-   public class WeatherForDaysModel
+   public class WeatherForCityAndDaysModel
    {
-      public WeatherForDaysModel(Forecast forecast)
+      public WeatherForCityAndDaysModel(Forecast forecast)
       {
          Temperature = forecast.MultiDayForecast.Average(c => c.WeatherDetails.Temperature).ToString();
          CityName = forecast.City.Name;

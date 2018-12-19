@@ -4,18 +4,18 @@ using Infrastructure.UrlFactory.UrlBuilder;
 
 namespace DAL.UrlFactory.ConcreteUrlBuilders
 {
-   public class WeatherForDaysUrlBuilder : IUrlBuilder
+   public class WeatherForCityAndDaysUrlBuilder : IUrlBuilder
    {
       private readonly IAppSettingsProvider _appSettingsProvider;
 
-      public WeatherForDaysUrlBuilder(IAppSettingsProvider appSettingsProvider)
+      public WeatherForCityAndDaysUrlBuilder(IAppSettingsProvider appSettingsProvider)
       {
          _appSettingsProvider = appSettingsProvider;
       }
 
       public string Build(params string[] args)
       {
-         return $"{CommonConstants.BaseWeatherUrl}?lat={args[0]}&lon={args[1]}&appId={_appSettingsProvider.ApiKey}";
+         return $"{CommonConstants.BaseWeatherUrl}?q={args[0]},bg&appId={_appSettingsProvider.ApiKey}";
       }
    }
 }

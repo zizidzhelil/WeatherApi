@@ -11,23 +11,22 @@ using Infrastructure.UrlFactory.UrlBuilder;
 
 namespace DAL.Weather.Queries
 {
-   public class GetWeatherForDaysQuery : IGetWeatherForDaysQuery
+   public class GetWeatherForCityAndDaysQuery : IGetWeatherForCityAndDaysQuery
    {
       private readonly IWeatherContext _context;
       private readonly IUrlFactory _urlFactory;
 
-      public GetWeatherForDaysQuery(IWeatherContext context, IUrlFactory urlFactory)
+      public GetWeatherForCityAndDaysQuery(IWeatherContext context, IUrlFactory urlFactory)
       {
          _context = context;
          _urlFactory = urlFactory;
       }
 
-      public async Task<Forecast> Execute(int weatherDays, Coordinates coordinates)
+      public async Task<Forecast> Execute(string city, int weatherDays)
       {
          string result = await _context.MakeRequest(_urlFactory.Create(
-            nameof(WeatherForDaysUrlBuilder),
-            coordinates.Latitude.ToString(),
-            coordinates.Longitude.ToString()));
+            nameof(WeatherForCityAndDaysUrlBuilder),
+            city));
 
          Forecast forecast = JsonConvert.DeserializeObject<Forecast>(result);
          forecast.ForecastCount = weatherDays;

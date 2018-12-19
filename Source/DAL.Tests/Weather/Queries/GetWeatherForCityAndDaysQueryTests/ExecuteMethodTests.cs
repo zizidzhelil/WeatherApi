@@ -8,17 +8,17 @@ using Infrastructure.Weather.Queries;
 using Moq;
 using Newtonsoft.Json;
 using NUnit.Framework;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DAL.Tests.Weather.Queries.GetWeatherForDaysQueryTests
+namespace DAL.Tests.Weather.Queries.GetWeatherForCityAndDaysQueryTests
 {
    [TestFixture]
    public class ExecuteMethodTests
    {
+      private const string _city = "Sofia";
       private const int _weatherForDays = 4;
-      private const double _longitude = 39.0;
-      private const double _latitude = 40.0;
 
       private readonly IWeatherContext _contextMock;
       private readonly IUrlFactory _urlFactoryMock;
@@ -30,8 +30,8 @@ namespace DAL.Tests.Weather.Queries.GetWeatherForDaysQueryTests
 
          contextMock.Setup(c => c.MakeRequest(It.IsAny<string>())).ReturnsAsync(ResponseMocks.GetForecastMock);
          urlFactoryMock
-            .Setup(u => u.Create(nameof(WeatherForDaysUrlBuilder), _longitude.ToString(), _latitude.ToString()))
-            .Returns($"https://samples.openweathermap.org/data/2.5/forecast/daily?lat={_latitude}&lon={_longitude}&cnt=10&appid=461731e6baef28d783d676b7672069a1");
+            .Setup(u => u.Create(nameof(WeatherForCityAndDaysUrlBuilder), _city))
+            .Returns($"https://samples.openweathermap.org/data/2.5/forecast?q={_city},bg&appid={Guid.NewGuid()}");
 
          _contextMock = contextMock.Object;
          _urlFactoryMock = urlFactoryMock.Object;
@@ -45,11 +45,11 @@ namespace DAL.Tests.Weather.Queries.GetWeatherForDaysQueryTests
       [TestCase(5)]
       public async Task ShouldReturnDeserializedObject(int weatherObject)
       {
-         IGetWeatherForDaysQuery getWeatherForDaysQuery = new GetWeatherForDaysQuery(_contextMock, _urlFactoryMock);
+         IGetWeatherForCityAndDaysQuery getWeatherForDaysQuery = new GetWeatherForCityAndDaysQuery(_contextMock, _urlFactoryMock);
 
          Forecast actualObject = await getWeatherForDaysQuery.Execute(
-            weatherObject,
-            CoordinateMocks.GetCurrentCoordinates(_latitude, _longitude));
+            _city,
+            weatherObject);
          Forecast expectedObject = JsonConvert.DeserializeObject<Forecast>(ResponseMocks.GetForecastMock);
 
          expectedObject.ForecastCount = weatherObject;

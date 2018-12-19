@@ -21,14 +21,14 @@ namespace BL.DependencyResolver
       {
          serviceCollection.AddScoped<IWeatherContext, WeatherContext>();
 
-         serviceCollection.AddScoped<IGetWeatherForDaysService, GetWeatherForDaysService>();
+         serviceCollection.AddScoped<IGetWeatherForCityAndDaysService, GetWeatherForCityAndDaysService>();
 
-         serviceCollection.AddScoped<IGetWeatherForDaysQuery, GetWeatherForDaysQuery>();
+         serviceCollection.AddScoped<IGetWeatherForCityAndDaysQuery, GetWeatherForCityAndDaysQuery>();
 
          serviceCollection.AddScoped<IUrlFactory>((serviceProvider) =>
             new UrlFactory(new Dictionary<string, Func<IUrlBuilder>>()
             {
-               { nameof(WeatherForDaysUrlBuilder), () => new WeatherForDaysUrlBuilder(serviceProvider.GetService<IAppSettingsProvider>()) }
+               { nameof(WeatherForCityAndDaysUrlBuilder), () => new WeatherForCityAndDaysUrlBuilder(serviceProvider.GetService<IAppSettingsProvider>()) }
             }));
 
          serviceCollection.AddHttpClient();
