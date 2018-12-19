@@ -1,10 +1,10 @@
-﻿using System.Threading.Tasks;
-using Core.Models;
+﻿using Core.Models;
+using System.Threading.Tasks;
 
 namespace Infrastructure.Weather.Queries
 {
    public interface IGetWeatherForDaysQuery
    {
-      Task<Forecast> Execute(int weatherDays);
+      Task<Forecast> Execute(int weatherDays, Coordinates coordinates);
    }
 }

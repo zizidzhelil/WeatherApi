@@ -5,23 +5,29 @@ using Infrastructure.Weather.Queries;
 using Newtonsoft.Json;
 using System.Linq;
 using System.Threading.Tasks;
+using DAL.UrlFactory.ConcreteUrlBuilders;
+using Infrastructure.UrlFactory;
+using Infrastructure.UrlFactory.UrlBuilder;
 
 namespace DAL.Weather.Queries
 {
    public class GetWeatherForDaysQuery : IGetWeatherForDaysQuery
    {
       private readonly IWeatherContext _context;
-      private readonly IAppSettingsProvider _appSettingsProvider;
+      private readonly IUrlFactory _urlFactory;
 
-      public GetWeatherForDaysQuery(IWeatherContext context, IAppSettingsProvider appSettingsProvider)
+      public GetWeatherForDaysQuery(IWeatherContext context, IUrlFactory urlFactory)
       {
          _context = context;
-         _appSettingsProvider = appSettingsProvider;
+         _urlFactory = urlFactory;
       }
 
-      public async Task<Forecast> Execute(int weatherDays)
+      public async Task<Forecast> Execute(int weatherDays, Coordinates coordinates)
       {
-         string result = await _context.MakeRequest($"https://api.openweathermap.org/data/2.5/forecast?lat=35&lon=139&appid={_appSettingsProvider.ApiKey}");
+         string result = await _context.MakeRequest(_urlFactory.Create(
+            nameof(WeatherForDaysUrlBuilder),
+            coordinates.Latitude.ToString(),
+            coordinates.Longitude.ToString()));
 
          Forecast forecast = JsonConvert.DeserializeObject<Forecast>(result);
          forecast.ForecastCount = weatherDays;

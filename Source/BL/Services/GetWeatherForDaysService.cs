@@ -17,7 +17,8 @@ namespace BL.Services
 
       public async Task<WeatherForDaysModel> GetWeatherForDays(int weatherForDays)
       {
-         Forecast forecast = await _getWeatherForDaysQuery.Execute(weatherForDays);
+         // TODO: Implement actual geolocation search
+         Forecast forecast = await _getWeatherForDaysQuery.Execute(weatherForDays, new Coordinates() { Longitude = 39.0, Latitude = 40.0 });
          WeatherForDaysModel currentWeather = new WeatherForDaysModel(forecast);
 
          return currentWeather;
