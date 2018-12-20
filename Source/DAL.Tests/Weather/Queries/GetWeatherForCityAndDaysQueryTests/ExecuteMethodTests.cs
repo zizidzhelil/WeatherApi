@@ -1,6 +1,5 @@
 ﻿using Core.Models;
 using DAL.Tests.Mocks.MockData;
-using DAL.UrlFactory.ConcreteUrlBuilders;
 using DAL.Weather.Queries;
 using Infrastructure.Context;
 using Infrastructure.UrlFactory;
@@ -11,6 +10,7 @@ using NUnit.Framework;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using DAL.Factories.ConcreteUrlBuilders;
 
 namespace DAL.Tests.Weather.Queries.GetWeatherForCityAndDaysQueryTests
 {

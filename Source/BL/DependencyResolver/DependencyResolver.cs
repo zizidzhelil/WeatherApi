@@ -1,7 +1,5 @@
 ﻿using BL.Services;
 using DAL.Context;
-using DAL.UrlFactory;
-using DAL.UrlFactory.ConcreteUrlBuilders;
 using DAL.Weather.Queries;
 using Infrastructure.Context;
 using Infrastructure.Providers;
@@ -12,6 +10,8 @@ using Infrastructure.Weather.Queries;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using DAL.Factories;
+using DAL.Factories.ConcreteUrlBuilders;
 
 namespace BL.DependencyResolver
 {

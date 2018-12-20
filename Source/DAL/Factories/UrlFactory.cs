@@ -1,9 +1,9 @@
-﻿using Infrastructure.UrlFactory;
-using Infrastructure.UrlFactory.UrlBuilder;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Infrastructure.UrlFactory;
+using Infrastructure.UrlFactory.UrlBuilder;
 
-namespace DAL.UrlFactory
+namespace DAL.Factories
 {
    public class UrlFactory : IUrlFactory
    {

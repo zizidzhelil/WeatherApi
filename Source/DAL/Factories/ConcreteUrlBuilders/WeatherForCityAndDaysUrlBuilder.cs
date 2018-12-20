@@ -2,7 +2,7 @@
 using Infrastructure.Providers;
 using Infrastructure.UrlFactory.UrlBuilder;
 
-namespace DAL.UrlFactory.ConcreteUrlBuilders
+namespace DAL.Factories.ConcreteUrlBuilders
 {
    public class WeatherForCityAndDaysUrlBuilder : IUrlBuilder
    {

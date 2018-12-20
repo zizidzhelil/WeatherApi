@@ -5,7 +5,7 @@ using Infrastructure.Weather.Queries;
 using Newtonsoft.Json;
 using System.Linq;
 using System.Threading.Tasks;
-using DAL.UrlFactory.ConcreteUrlBuilders;
+using DAL.Factories.ConcreteUrlBuilders;
 using Infrastructure.UrlFactory;
 using Infrastructure.UrlFactory.UrlBuilder;
 
