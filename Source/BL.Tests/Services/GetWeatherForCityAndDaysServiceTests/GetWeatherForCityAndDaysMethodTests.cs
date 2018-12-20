@@ -1,5 +1,6 @@
 ﻿using BL.Services;
 using BL.Tests.Mocks.MockData;
+using Infrastructure.Grouper;
 using Infrastructure.Models;
 using Infrastructure.Services;
 using Infrastructure.Weather.Queries;
@@ -16,26 +17,35 @@ namespace BL.Tests.Services.GetWeatherForCityAndDaysServiceTests
       private const string _city = "Sofia";
       private const int _weatherForDays = 4;
 
-      private readonly IGetWeatherForCityAndDaysQuery _getWeatherForCityAndDaysQueryMock;
+      private readonly IGetWeatherForCityQuery _getWeatherForCityAndDaysQueryMock;
+      private readonly IGroupWeatherByDay _groupWeatherByDayMock;
 
       public GetWeatherForCityAndDaysMethodTests()
       {
-         Mock<IGetWeatherForCityAndDaysQuery> getCurrentWeatherQuery = new Mock<IGetWeatherForCityAndDaysQuery>();
+         Mock<IGetWeatherForCityQuery> getCurrentWeatherQuery = new Mock<IGetWeatherForCityQuery>();
+         Mock<IGroupWeatherByDay> groupWeatherByDayMock = new Mock<IGroupWeatherByDay>();
 
          getCurrentWeatherQuery
-            .Setup(c => c.Execute(It.IsAny<string>(), _weatherForDays))
+            .Setup(c => c.Execute(It.IsAny<string>()))
             .ReturnsAsync(QueryMocks.GetFiveDayForecastQueryResult);
 
+         groupWeatherByDayMock
+            .Setup(c => c.GroupWeather(QueryMocks.GetFiveDayForecastQueryResult, _weatherForDays))
+            .Returns(QueryMocks.WeatherForCityAndDays);
+
          _getWeatherForCityAndDaysQueryMock = getCurrentWeatherQuery.Object;
+         _groupWeatherByDayMock = groupWeatherByDayMock.Object;
       }
 
       [Test]
       public async Task ShouldReturnWeatherModel()
       {
-         IGetWeatherForCityAndDaysService currentWeatherService = new GetWeatherForCityAndDaysService(_getWeatherForCityAndDaysQueryMock);
+         IGetWeatherForCityAndDaysService currentWeatherService = new GetWeatherForCityAndDaysService(
+            _getWeatherForCityAndDaysQueryMock,
+            _groupWeatherByDayMock);
 
          WeatherForCityAndDaysModel actualObject = await currentWeatherService.GetWeatherForCityAndDays(_city, _weatherForDays);
-         WeatherForCityAndDaysModel expectedObject = new WeatherForCityAndDaysModel(QueryMocks.GetFiveDayForecastQueryResult);
+         WeatherForCityAndDaysModel expectedObject = QueryMocks.WeatherForCityAndDays;
 
          var actual = JsonConvert.SerializeObject(actualObject);
          var expected = JsonConvert.SerializeObject(expectedObject);

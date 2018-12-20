@@ -15,7 +15,7 @@ namespace DAL.Factories.ConcreteUrlBuilders
 
       public string Build(params string[] args)
       {
-         return $"{CommonConstants.BaseWeatherUrl}?q={args[0]},bg&appId={_appSettingsProvider.ApiKey}";
+         return $"{CommonConstants.BaseWeatherUrl}?q={args[0]},bg&units=metric&appId={_appSettingsProvider.ApiKey}";
       }
    }
 }

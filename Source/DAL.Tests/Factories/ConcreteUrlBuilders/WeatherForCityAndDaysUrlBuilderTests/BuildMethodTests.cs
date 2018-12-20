@@ -30,7 +30,7 @@ namespace DAL.Tests.Factories.ConcreteUrlBuilders.WeatherForCityAndDaysUrlBuilde
          WeatherForCityAndDaysUrlBuilder urlBuilder = new WeatherForCityAndDaysUrlBuilder(_appSettingsProviderMock);
 
          string actual = urlBuilder.Build(_cityMock);
-         string expected = $"{CommonConstants.BaseWeatherUrl}?q={_cityMock},bg&appId={_apiKeyMock}";
+         string expected = $"{CommonConstants.BaseWeatherUrl}?q={_cityMock},bg&units=metric&appId={_apiKeyMock}";
 
          Assert.AreEqual(expected, actual);
       }

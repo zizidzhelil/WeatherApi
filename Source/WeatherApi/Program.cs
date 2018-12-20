@@ -3,6 +3,7 @@ using Infrastructure.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WeatherApi.DependencyResolver;
+using System.Linq;
 
 namespace WeatherApi
 {
@@ -20,7 +21,7 @@ namespace WeatherApi
             .BuildServiceProvider();
 
          var weatherForDaysService = serviceProvider.GetService<IGetWeatherForCityAndDaysService>();
-         var result = weatherForDaysService.GetWeatherForCityAndDays("Sofia", 4).GetAwaiter().GetResult();
+         var result = weatherForDaysService.GetWeatherForCityAndDays("Burgas", 4).GetAwaiter().GetResult();
       }
    }
 }
