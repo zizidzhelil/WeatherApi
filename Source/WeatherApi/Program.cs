@@ -1,10 +1,10 @@
 ﻿using BL.DependencyResolver;
+using CommandLine;
 using ConsoleTableExt;
 using Infrastructure.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using CommandLine;
 using WeatherApi.Converters;
 using WeatherApi.DependencyResolver;
 using WeatherApi.Options;
@@ -16,6 +16,7 @@ namespace WeatherApi
       public static void Main(string[] args)
       {
          IConfigurationRoot configguration = new ConfigurationBuilder()
+            .AddJsonFile("appSettings.json", optional: true)
             .AddEnvironmentVariables()
             .Build();
 

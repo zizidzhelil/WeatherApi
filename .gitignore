@@ -337,3 +337,4 @@ ASALocalRun/
 # Local History for Visual Studio
 .localhistory/
 /Source/WeatherApi/Properties/launchSettings.json
+/Source/WeatherApi/appSettings.json
