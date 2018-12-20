@@ -71,7 +71,9 @@ namespace BL.Tests.Mocks.MockData
                Date = "2017-12-20",
                Humidity = 8,
                Temperature = "6.9",
-               WindSpeed = 9.6
+               WindSpeed = 9.6,
+               Description = "Sunny",
+               Pressure = "89"
             }
          }
       };

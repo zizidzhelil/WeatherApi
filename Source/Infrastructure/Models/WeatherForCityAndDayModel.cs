@@ -10,6 +10,10 @@
 
       public double CloudinessPercent { get; set; }
 
+      public string Description { get; set; }
+
+      public string Pressure { get; set; }
+
       public string Date { get; set; }
    }
 }

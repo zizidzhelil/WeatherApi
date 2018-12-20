@@ -36,7 +36,9 @@ namespace BL.Grouper
                   CloudinessPercent = w.Weather.Average(c => c.Clouds.CloudinessPercent),
                   Humidity = w.Weather.Average(h => h.WeatherDetails.Humidity),
                   Temperature = w.Weather.Average(t => t.WeatherDetails.Temperature).ToString(),
-                  WindSpeed = w.Weather.Average(ws => ws.Wind.Speed)
+                  WindSpeed = w.Weather.Average(ws => ws.Wind.Speed),
+                  Pressure = w.Weather.Average(p => p.WeatherDetails.Pressure).ToString(),
+                  Description = w.Weather.LastOrDefault()?.WeatherForecast.Select(wf => wf.Description).LastOrDefault()
                })
                .Take(weatherForDaysCount)
                .ToList(),
